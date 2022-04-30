@@ -1,0 +1,156 @@
+\documentclass[10pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage[landscape, a4paper, margin=1cm]{geometry}
+
+\usepackage{graphics} % поворот текста на 90 градусов
+\usepackage{array} % типы столбцов
+
+\usepackage{makecell} % объединение строк в одну клетку
+
+
+\def\monday{Понедельник}
+\def\tuesday{Вторник}
+\def\wednesday{Среда}
+\def\thursday{Четверг}
+\def\friday{Пятница}
+\def\saturday{Суббота}
+
+\def\oddWeek{Нечётная}
+\def\evenWeek{Чётная}
+
+\newcommand\lessonNum[3]{\textbf{#1.} \\ #2 \\ #3}
+\def\firstLesson{\lessonNum{1}{9:00}{10:30}}
+\def\secondLesson{\lessonNum{2}{10:40}{12:10}}
+\def\thirdLesson{\lessonNum{3}{12:40}{14:10}}
+\def\fourthLesson{\lessonNum{4}{14:20}{15:50}}
+\def\fifthLesson{\lessonNum{5}{16:20}{17:50}}
+\def\sixthLesson{\lessonNum{6}{18:00}{19:30}}
+\def\seventhLesson{\lessonNum{7}{19:40}{21:00}}
+
+\newcommand\lesson[2]{
+    \begin{tabular}{p{.03\textwidth}m{.07\textwidth}}
+        \makecell{#1} & #2
+    \end{tabular}
+}
+
+\newcommand\lessonWithHline[2]{
+    \begin{tabular}{p{.03\textwidth}m{.07\textwidth}}
+        \makecell{#1} & #2 \\ \hline
+    \end{tabular}
+}
+
+\newcommand\weekDay[7]{
+    \makecell{
+        \setbox0=\hbox{#1\unskip}\ifdim\wd0=0pt 
+        \else 
+            \setbox0=\hbox{#2#3#4#5#6#7\unskip}\ifdim\wd0=0pt \lesson{\firstLesson}{#1}
+            \else
+                \lessonWithHline{\firstLesson}{#1}
+            \fi
+            \\
+        \fi 
+        \setbox0=\hbox{#2\unskip}\ifdim\wd0=0pt 
+        \else 
+            \setbox0=\hbox{#3#4#5#6#7\unskip}\ifdim\wd0=0pt
+                \lesson{\secondLesson}{#2} 
+            \else
+                \lessonWithHline{\secondLesson}{#2}
+            \fi
+            \\
+        \fi 
+        \setbox0=\hbox{#3\unskip}\ifdim\wd0=0pt 
+        \else 
+            \setbox0=\hbox{#4#5#6#7\unskip}\ifdim\wd0=0pt
+                \lesson{\thirdLesson}{#3}
+            \else
+                \lessonWithHline{\thirdLesson}{#3}
+            \fi
+            \\
+        \fi
+        \setbox0=\hbox{#4\unskip}\ifdim\wd0=0pt 
+        \else 
+            \setbox0=\hbox{#5#6#7\unskip}\ifdim\wd0=0pt
+                \lesson{\fourthLesson}{#4}
+            \else
+                \lessonWithHline{\fourthLesson}{#4}
+            \fi
+            \\
+        \fi
+        \setbox0=\hbox{#5\unskip}\ifdim\wd0=0pt 
+        \else 
+            \setbox0=\hbox{#6#7\unskip}\ifdim\wd0=0pt
+                \lesson{\fifthLesson}{#5}
+            \else
+                \lessonWithHline{\fifthLesson}{#5}
+            \fi
+            \\
+        \fi 
+        \setbox0=\hbox{#6\unskip}\ifdim\wd0=0pt 
+        \else 
+            \setbox0=\hbox{#7\unskip}\ifdim\wd0=0pt
+                \lesson{\sixthLesson}{#6}
+            \else
+                \lessonWithHline{\sixthLesson}{#6}
+            \fi
+            \\
+        \fi 
+        \setbox0=\hbox{#7\unskip}\ifdim\wd0=0pt
+        \else 
+            \lesson{\seventhLesson}{#7}
+        \fi
+    }
+}
+
+
+\begin{document}
+
+\pagestyle{empty} % Выкл нумерацию страниц
+
+\begin{center}
+    \Large{Расписание РТУ МИРЭА} \\
+    \large{Группа: АААА-01-21 \qquad Дата создания: \today}
+\end{center}
+
+\footnotesize
+\begin{tabular}{|m{.01\textwidth}||*{6}{p{.14\textwidth}|}}
+    \hline
+    \textnumero & \monday & \tuesday & \wednesday & \thursday & \friday & \saturday \\ \hline \hline
+    \rotatebox{90}{\oddWeek} & 
+    
+    \weekDay{нечет пн, 1 пара}{нечет пн, 2 пара}{нечет пн, 3 пара}{нечет пн, 4 пара}{нечет пн, 5 пара}{нечет пн, 6 пара}{нечет пн, 7 пара} & 
+    
+    \weekDay{нечет вт, 1 пара}{нечет вт, 2 пара}{нечет вт, 3 пара}{нечет вт, 4 пара}{нечет вт, 5 пара}{нечет вт, 6 пара}{нечет вт, 7 пара} &
+    
+    \weekDay{нечет ср, 1 пара}{нечет ср, 2 пара}{нечет ср, 3 пара}{нечет ср, 4 пара}{нечет ср, 5 пара}{нечет ср, 6 пара}{нечет ср, 7 пара} &
+    
+    \weekDay{нечет чт, 1 пара}{нечет чт, 2 пара}{нечет чт, 3 пара}{нечет чт, 4 пара}{нечет чт, 5 пара}{нечет чт, 6 пара}{нечет чт, 7 пара} &
+    
+    \weekDay{нечет пт, 1 пара}{нечет пт, 2 пара}{нечет пт, 3 пара}{нечет пт, 4 пара}{нечет пт, 5 пара}{нечет пт, 6 пара}{нечет пт, 7 пара} &
+    
+    \weekDay{нечет сб, 1 пара}{нечет сб, 2 пара}{нечет сб, 3 пара}{нечет сб, 4 пара}{нечет сб, 5 пара}{нечет сб, 6 пара}{нечет сб, 7 пара} 
+    
+    \\ \hline
+    
+    \rotatebox{90}{\evenWeek} &
+    
+    \weekDay{можно выборочно исключить пары}{}{}{это 4 пара}{}{это 6 пара}{} &
+    
+    \weekDay{чет вт, 1 пара}{чет вт, 2 пара}{чет вт, 3 пара}{чет вт, 4 пара}{чет вт, 5 пара}{чет вт, 6 пара}{чет вт, 7 пара} &
+    
+    \weekDay{чет ср, 1 пара}{чет ср, 2 пара}{чет ср, 3 пара}{чет ср, 4 пара}{чет ср, 5 пара}{чет ср, 6 пара}{чет ср, 7 пара} &
+    
+    \weekDay{чет чт, 1 пара}{чет чт, 2 пара}{чет чт, 3 пара}{чет чт, 4 пара}{чет чт, 5 пара}{чет чт, 6 пара}{чет чт, 7 пара} &
+    
+    \weekDay{чет пт, 1 пара}{чет пт, 2 пара}{чет пт, 3 пара}{чет пт, 4 пара}{чет пт, 5 пара}{чет пт, 6 пара}{чет пт, 7 пара} &
+    
+    \weekDay{чет сб, 1 пара}{чет сб, 2 пара}{чет сб, 3 пара}{чет сб, 4 пара}{чет сб, 5 пара}{чет сб, 6 пара}{чет сб, 7 пара} 
+    
+    \\ \hline
+\end{tabular}
+
+
+
+\end{document}
