@@ -1,3 +1,3 @@
 Расписание МИРЭА в LaTeX.
 
-![IMG_3003](https://user-images.githubusercontent.com/70258211/166101483-21e20b59-91d2-4a05-a10e-add4008bb35f.jpeg)
+![IMG_3004](https://user-images.githubusercontent.com/70258211/166139175-d296c5fa-7afd-4b0e-8ede-6c082c9a3bd2.jpeg)
