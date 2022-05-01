@@ -30,14 +30,14 @@
 \def\sixthLesson{\lessonNum{6}{18:00}{19:30}}
 \def\seventhLesson{\lessonNum{7}{19:40}{21:00}}
 
-\newcommand\lesson[2]{
-    \begin{tabular}{p{.03\textwidth}m{.07\textwidth}}
+\newcommand\lessonWithoutHline[2]{
+    \begin{tabular}{@{\hspace{.0001\textwidth}}cm{.1\textwidth}@{\hspace{0.0001\textwidth}}}
         \makecell{#1} & #2
     \end{tabular}
 }
 
 \newcommand\lessonWithHline[2]{
-    \begin{tabular}{p{.03\textwidth}m{.07\textwidth}}
+    \begin{tabular}{@{\hspace{.0001\textwidth}}cm{.1\textwidth}@{\hspace{0.0001\textwidth}}}
         \makecell{#1} & #2 \\ \hline
     \end{tabular}
 }
@@ -46,7 +46,8 @@
     \makecell{
         \setbox0=\hbox{#1\unskip}\ifdim\wd0=0pt 
         \else 
-            \setbox0=\hbox{#2#3#4#5#6#7\unskip}\ifdim\wd0=0pt \lesson{\firstLesson}{#1}
+            \setbox0=\hbox{#2#3#4#5#6#7\unskip}\ifdim\wd0=0pt 
+                \lessonWithoutHline{\firstLesson}{#1}
             \else
                 \lessonWithHline{\firstLesson}{#1}
             \fi
@@ -55,7 +56,7 @@
         \setbox0=\hbox{#2\unskip}\ifdim\wd0=0pt 
         \else 
             \setbox0=\hbox{#3#4#5#6#7\unskip}\ifdim\wd0=0pt
-                \lesson{\secondLesson}{#2} 
+                \lessonWithoutHline{\secondLesson}{#2} 
             \else
                 \lessonWithHline{\secondLesson}{#2}
             \fi
@@ -64,7 +65,7 @@
         \setbox0=\hbox{#3\unskip}\ifdim\wd0=0pt 
         \else 
             \setbox0=\hbox{#4#5#6#7\unskip}\ifdim\wd0=0pt
-                \lesson{\thirdLesson}{#3}
+                \lessonWithoutHline{\thirdLesson}{#3}
             \else
                 \lessonWithHline{\thirdLesson}{#3}
             \fi
@@ -73,7 +74,7 @@
         \setbox0=\hbox{#4\unskip}\ifdim\wd0=0pt 
         \else 
             \setbox0=\hbox{#5#6#7\unskip}\ifdim\wd0=0pt
-                \lesson{\fourthLesson}{#4}
+                \lessonWithoutHline{\fourthLesson}{#4}
             \else
                 \lessonWithHline{\fourthLesson}{#4}
             \fi
@@ -82,7 +83,7 @@
         \setbox0=\hbox{#5\unskip}\ifdim\wd0=0pt 
         \else 
             \setbox0=\hbox{#6#7\unskip}\ifdim\wd0=0pt
-                \lesson{\fifthLesson}{#5}
+                \lessonWithoutHline{\fifthLesson}{#5}
             \else
                 \lessonWithHline{\fifthLesson}{#5}
             \fi
@@ -91,7 +92,7 @@
         \setbox0=\hbox{#6\unskip}\ifdim\wd0=0pt 
         \else 
             \setbox0=\hbox{#7\unskip}\ifdim\wd0=0pt
-                \lesson{\sixthLesson}{#6}
+                \lessonWithoutHline{\sixthLesson}{#6}
             \else
                 \lessonWithHline{\sixthLesson}{#6}
             \fi
@@ -99,7 +100,7 @@
         \fi 
         \setbox0=\hbox{#7\unskip}\ifdim\wd0=0pt
         \else 
-            \lesson{\seventhLesson}{#7}
+            \lessonWithoutHline{\seventhLesson}{#7}
         \fi
     }
 }
@@ -114,8 +115,9 @@
     \large{Группа: АААА-01-21 \qquad Дата создания: \today}
 \end{center}
 
+
 \footnotesize
-\begin{tabular}{|m{.01\textwidth}||*{6}{p{.14\textwidth}|}}
+\begin{tabular}{|c||*{6}{@{\hspace{.0001\textwidth}}p{0.15\textwidth}@{\hspace{0.0001\textwidth}}|}}
     \hline
     \textnumero & \monday & \tuesday & \wednesday & \thursday & \friday & \saturday \\ \hline \hline
     \rotatebox{90}{\oddWeek} & 
@@ -136,7 +138,7 @@
     
     \rotatebox{90}{\evenWeek} &
     
-    \weekDay{можно выборочно исключить пары}{}{}{это 4 пара}{}{это 6 пара}{} &
+    \weekDay{можно выборочно исключить пары}{}{это 3 пара}{}{}{Методы и средства проектирования информационных систем и технологий, \newline \textbf{А-100}, \newline И.~И.~Иванов, \newline практика}{} &
     
     \weekDay{чет вт, 1 пара}{чет вт, 2 пара}{чет вт, 3 пара}{чет вт, 4 пара}{чет вт, 5 пара}{чет вт, 6 пара}{чет вт, 7 пара} &
     
