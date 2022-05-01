@@ -31,13 +31,13 @@
 \def\seventhLesson{\lessonNum{7}{19:40}{21:00}}
 
 \newcommand\lessonWithoutHline[2]{
-    \begin{tabular}{@{\hspace{.0001\textwidth}}cm{.1\textwidth}@{\hspace{0.0001\textwidth}}}
+    \begin{tabular}{@{\hspace{.0001\textwidth}}c@{\hspace{.01\textwidth}}m{.11\textwidth}@{\hspace{0.0001\textwidth}}}
         \makecell{#1} & #2
     \end{tabular}
 }
 
 \newcommand\lessonWithHline[2]{
-    \begin{tabular}{@{\hspace{.0001\textwidth}}cm{.1\textwidth}@{\hspace{0.0001\textwidth}}}
+    \begin{tabular}{@{\hspace{.0001\textwidth}}c@{\hspace{.01\textwidth}}m{.11\textwidth}@{\hspace{0.0001\textwidth}}}
         \makecell{#1} & #2 \\ \hline
     \end{tabular}
 }
@@ -116,8 +116,9 @@
 \end{center}
 
 
+\renewcommand{\arraystretch}{1.9}
 \footnotesize
-\begin{tabular}{|c||*{6}{@{\hspace{.0001\textwidth}}p{0.15\textwidth}@{\hspace{0.0001\textwidth}}|}}
+\begin{tabular}{|c||*{6}{@{\hspace{.001\textwidth}}c@{\hspace{.001\textwidth}}|}}
     \hline
     \textnumero & \monday & \tuesday & \wednesday & \thursday & \friday & \saturday \\ \hline \hline
     \rotatebox{90}{\oddWeek} & 
